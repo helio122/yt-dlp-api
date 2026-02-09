@@ -185,8 +185,8 @@ app.post('/formats', async (req, res) => {
         description: data.description ? data.description.substring(0, 200) + '...' : ''
       },
       formats: {
-        video: uniqueVideos.slice(0, 6), // Top 6 qualidades
-        audio: uniqueAudio.slice(0, 3)   // Top 3 áudios
+        video: uniqueVideos.slice(0, 8), // Top 8 qualidades
+        audio: uniqueAudio.slice(0, 4)   // Top 4 áudios
       }
     });
     
