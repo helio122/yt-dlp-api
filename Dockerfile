@@ -12,11 +12,12 @@ RUN apt-get update && apt-get install -y \
 # Cria link simbólico para python3.11 como python3
 RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.11 1
 
-# Atualiza pip
-RUN pip3 install --upgrade pip
+# IMPORTANTE: Instala pip e yt-dlp usando --break-system-packages
+# Isso resolve o erro "externally-managed-environment"
+RUN pip3 install --upgrade pip --break-system-packages
 
 # Instala yt-dlp com todas as dependências
-RUN pip3 install --no-cache-dir yt-dlp[default]
+RUN pip3 install --no-cache-dir --break-system-packages yt-dlp
 
 # Cria diretório de trabalho
 WORKDIR /app
